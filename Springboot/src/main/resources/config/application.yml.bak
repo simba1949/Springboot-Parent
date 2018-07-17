@@ -1,0 +1,5 @@
+server:
+  port: 8888
+  servlet:
+    # http://localhost:8888/springboot/ 才能访问到
+    context-path: '/springboot'

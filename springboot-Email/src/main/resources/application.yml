@@ -1,0 +1,13 @@
+server:
+  port: 8888
+spring:
+  #springboot发送邮件的配置
+  mail:
+      host: smtp.qq.com
+      username: 932759972@qq.com
+      password: LO491001ve*
+      properties:
+          mail:
+              smtp:
+                  auth: true
+                  timeout: 25000

@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xmlns:task="http://www.springframework.org/schema/task"
+       xmlns:context="http://www.springframework.org/schema/context"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-3.2.xsd
+        http://www.springframework.org/schema/task http://www.springframework.org/schema/task/spring-task.xsd http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context.xsd">
+
+    <!-- 扫描组件 -->
+    <context:component-scan base-package="top.simba1949.task" />
+    <!-- 配置调度器 -->
+    <task:scheduler id="myScheduler" pool-size="10"/>
+    <!-- 配置任务 -->
+    <task:scheduled-tasks scheduler="myScheduler">
+        <task:scheduled ref="mySpringTask" method="doTask" cron="0/5 * * * * ? "/>
+        <task:scheduled ref="mySpringTask02" method="doTask" cron="0/3 * * * * ? "/>
+    </task:scheduled-tasks>
+
+</beans>

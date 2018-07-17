@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<configuration scan="true" scanPeriod="60 seconds" debug="false">
+    <contextName>myApplicationName</contextName>
+    <timestamp key="dateFile" datePattern="yyyy-MM-dd" />
+    <property name="LOG_HOME" value="Springboot-Logback/logs" />
+    <!-- 控制台设置 -->
+    <appender name="STDOUT" class="ch.qos.logback.core.ConsoleAppender">
+        <!-- encoder 默认配置为PatternLayoutEncoder -->
+        <encoder>
+            <pattern>%d [%thread] %-5level %logger{36} - %msg%n</pattern>
+        </encoder>
+    </appender>
+    <!--输出到文件中-->
+    <appender name="FILE" class="ch.qos.logback.core.FileAppender">
+        <file>${LOG_HOME}/log-${dateFile}.log</file>
+        <append>true</append>
+        <immediateFlush>true</immediateFlush>
+        <encoder>
+            <pattern>%d [%thread] %-5level %logger{36} - %msg%n</pattern>
+        </encoder>
+    </appender>
+
+    <appender name="SPRING-APPENDER" class="ch.qos.logback.core.rolling.RollingFileAppender">
+        <file>${LOG_HOME}/springframework.log</file>
+        <rollingPolicy class="ch.qos.logback.core.rolling.TimeBasedRollingPolicy">
+            <FileNamePattern>${LOG_HOME}/springframework.%d{yyyy-MM-dd}.log.gz</FileNamePattern>
+            <maxHistory>30</maxHistory>
+            <totalSizeCap>20GB</totalSizeCap>
+        </rollingPolicy>
+        <encoder class="ch.qos.logback.core.encoder.LayoutWrappingEncoder">
+            <layout class="ch.qos.logback.classic.PatternLayout">
+                <pattern>%d [%thread] %-5level %logger{36} %line - %msg%n</pattern>
+            </layout>
+        </encoder>
+    </appender>
+
+    <logger name="top.simba1949.controller" level="info">
+        <appender-ref ref="FILE" />
+    </logger>
+
+    <!-- 通配符 设置log打印级别 对所有类有效TRACE, DEBUG, INFO, WARN, ERROR, ALL 和 OFF-->
+    <root level="DEBUG">
+        <appender-ref ref="STDOUT" />
+        <appender-ref ref="SPRING-APPENDER" />
+    </root>
+</configuration>

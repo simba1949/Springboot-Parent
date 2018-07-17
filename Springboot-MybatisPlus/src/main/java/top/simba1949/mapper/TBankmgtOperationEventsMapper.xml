@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="top.simba1949.mapper.TBankmgtOperationEventsMapper">
+
+    <!-- 通用查询映射结果 -->
+    <resultMap id="BaseResultMap" type="top.simba1949.common.TBankmgtOperationEvents">
+        <id column="pk_daily" property="pkDaily" />
+        <result column="Fbank_type" property="fbankType" />
+        <result column="Fbank_name" property="fbankName" />
+        <result column="Fproblem_type" property="fproblemType" />
+        <result column="Fappear_time" property="fappearTime" />
+        <result column="Ffeedback_time" property="ffeedbackTime" />
+        <result column="Ffeedback_person" property="ffeedbackPerson" />
+        <result column="Fprocessing_person" property="fprocessingPerson" />
+        <result column="Fprocessing_time" property="fprocessingTime" />
+        <result column="Fproblem_state" property="fproblemState" />
+        <result column="Fremark_column" property="fremarkColumn" />
+        <result column="Fdaily_state" property="fdailyState" />
+    </resultMap>
+
+</mapper>
