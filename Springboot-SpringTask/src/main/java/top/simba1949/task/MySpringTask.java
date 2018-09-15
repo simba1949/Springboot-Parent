@@ -10,7 +10,7 @@ import java.util.Date;
 import java.util.concurrent.ThreadFactory;
 
 /**
- * @author v_jiayytian@tencent.com
+ * @author simba1949@outlook.com
  * @date 2018/7/10 20:52
  */
 @Component

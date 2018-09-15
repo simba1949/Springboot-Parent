@@ -46,7 +46,7 @@ import springfox.documentation.swagger2.annotations.EnableSwagger2;
  * Swagger2 配置类
  * @Configuration 让 Spring 容器加载该配置类
  * @EnableSwagger2 用于启动 swagger2
- * @author v_jiayytian@tencent.com
+ * @author simba1949@outlook.com
  * @date 2018/7/4 21:36
  */
 @Configuration
